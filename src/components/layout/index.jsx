@@ -3,7 +3,6 @@ import {
 } from 'react-router-dom';
 import {
   Box,
-  Container,
   CircularProgress
 } from '@mui/material';
 import {
@@ -26,9 +25,9 @@ const Layout = () => {
         <Header />
       </Suspense>
 
-      <Container component="main" sx={{ flexGrow: 1, py: 4 }}>
+      <Box sx={{ flexGrow: 1 }}>
         <Outlet />
-      </Container>
+      </Box>
 
       <Suspense fallback={
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
