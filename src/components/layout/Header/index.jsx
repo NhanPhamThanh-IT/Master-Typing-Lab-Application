@@ -24,8 +24,8 @@ import {
 } from 'react-router-dom';
 
 // Constants
-import routePaths from '@constants/routePaths';
-import TEXT from '@constants/textConstants';
+import routePaths from '@constants/routePaths.js';
+import TEXT from '@constants/textConstants.js';
 
 const navItems = [
     {
