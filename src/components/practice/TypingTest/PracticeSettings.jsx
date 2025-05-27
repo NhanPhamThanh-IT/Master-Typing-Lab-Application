@@ -5,13 +5,13 @@ import {
   Settings, TrendingUp, Timer
 } from '@mui/icons-material';
 
-const PracticeSettings = ({ 
-  level, 
-  mode, 
-  duration, 
-  handleLevelChange, 
-  handleModeChange, 
-  handleDurationChange 
+const PracticeSettings = ({
+  level,
+  mode,
+  duration,
+  handleLevelChange,
+  handleModeChange,
+  handleDurationChange
 }) => {
   return (
     <Paper
@@ -24,7 +24,7 @@ const PracticeSettings = ({
       }}
     >
       <Grid container spacing={3} alignItems="center">
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Difficulty Level</InputLabel>
             <Select
@@ -40,7 +40,7 @@ const PracticeSettings = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Practice Mode</InputLabel>
             <Select
@@ -55,7 +55,7 @@ const PracticeSettings = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Duration</InputLabel>
             <Select

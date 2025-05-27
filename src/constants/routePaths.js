@@ -9,6 +9,7 @@ const routePaths = {
     // Typing Pages
     typingTest: 'typing-test',
     typingPractice: 'typing-practice',
+    typingLessons: 'typing-lessons',
 
     // Error Pages
     notFound: '/404',

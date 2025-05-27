@@ -26,7 +26,7 @@ const ResultsPanel = ({ wpm, accuracy, errorCount, duration, timer, mode, resetT
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <Card
             elevation={2}
             sx={{
@@ -51,7 +51,7 @@ const ResultsPanel = ({ wpm, accuracy, errorCount, duration, timer, mode, resetT
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <Card
             elevation={2}
             sx={{
@@ -100,7 +100,7 @@ const ResultsPanel = ({ wpm, accuracy, errorCount, duration, timer, mode, resetT
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <Card
             elevation={2}
             sx={{

@@ -94,7 +94,6 @@ const Layout = () => {
                         flexGrow: 1,
                         p: 3,
                         width: '100%',
-                        ml: { md: '240px' } // Offset content by sidebar width on desktop
                     }}
                 >
                     <Outlet />

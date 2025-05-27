@@ -20,6 +20,7 @@ const GeneralLayout = lazy(() => import('@components/layout/GeneralLayout'));
 const PracticeLayout = lazy(() => import('@components/layout/PracticeLayout'));
 const HomePage = lazy(() => import('@pages/HomePage'));
 const TypingTestPage = lazy(() => import('@pages/TypingTestPage'));
+const TypingLessonsPage = lazy(() => import('@pages/TypingLessonsPage'));
 const ContactPage = lazy(() => import('@pages/ContactPage'));
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
 
@@ -91,6 +92,14 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <TypingTestPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.typingLessons}
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <TypingLessonsPage />
             </Suspense>
           }
         />
