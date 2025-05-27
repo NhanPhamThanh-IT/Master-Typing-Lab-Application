@@ -1,3 +1,20 @@
+/**
+ * @fileoverview Footer component for the Typing Test Application.
+ * This component renders the application's footer section which includes:
+ * - Application branding and description
+ * - Navigation links to important pages
+ * - Contact information and social media links
+ * - Copyright information and legal links
+ * 
+ * The footer follows a responsive design pattern with a three-column layout
+ * on larger screens and stacked layout on smaller screens.
+ * 
+ * @module components/layout/Footer
+ * @requires @mui/material
+ * @requires @mui/icons-material
+ * @requires ./constants
+ */
+
 import {
     Box,
     Container,
@@ -17,6 +34,18 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 // Constants
 import CONSTANTS from './constants';
 
+/**
+ * Footer component that displays application information, navigation, 
+ * contact details, and copyright information.
+ * 
+ * @component
+ * @returns {JSX.Element} A footer component with branding, navigation, contact info, and copyright
+ * 
+ * @example
+ * return (
+ *   <Footer />
+ * )
+ */
 const Footer = () => {
     return (
         <Box component="footer" sx={{

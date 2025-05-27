@@ -9,23 +9,12 @@ import {
 import {
     Link as RouterLink
 } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 // Hero background image
 import heroBackground from "@assets/home-hero-background.png";
 
-// Custom hook for lazy loading images
-const useLazyLoadImage = (src) => {
-    const [sourceLoaded, setSourceLoaded] = useState(null);
-
-    useEffect(() => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => setSourceLoaded(src);
-    }, [src]);
-
-    return sourceLoaded;
-};
+// Hooks
+import useLazyLoadImage from '@hooks/useLazyLoadImage';
 
 const HeroSection = () => {
     const loadedImage = useLazyLoadImage(heroBackground);

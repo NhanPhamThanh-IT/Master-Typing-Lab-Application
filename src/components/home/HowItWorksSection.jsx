@@ -1,6 +1,20 @@
-import { Box, Container, Typography, Grid, Avatar } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Avatar
+} from '@mui/material';
+
+// Assets
+import Image from '@assets/home-how-it-work.png';
+
+// Hooks
+import useLazyLoadImage from '@hooks/useLazyLoadImage';
 
 const HowItWorksSection = () => {
+  const loadedImage = useLazyLoadImage(Image);
+
   return (
     <Box sx={{ bgcolor: 'background.paper', py: 8, mb: 8 }}>
       <Container maxWidth="lg">
@@ -70,7 +84,7 @@ const HowItWorksSection = () => {
               boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
             }}>
               <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                src={loadedImage}
                 alt="Person typing on keyboard"
                 style={{ width: '100%', display: 'block' }}
               />
