@@ -19,6 +19,7 @@ import routePaths from '@constants/routePaths'
 const Layout = lazy(() => import('@components/Layout'));
 const HomePage = lazy(() => import('@pages/HomePage'));
 const PracticePage = lazy(() => import('@pages/PracticePage'));
+const ContactPage = lazy(() => import('@pages/ContactPage'));
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
 
 // Main App component that defines the routes
@@ -70,6 +71,18 @@ function App() {
               </Box>
             }>
               <PracticePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.contactUs}
+          element={
+            <Suspense fallback={
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <CircularProgress />
+              </Box>
+            }>
+              <ContactPage />
             </Suspense>
           }
         />
