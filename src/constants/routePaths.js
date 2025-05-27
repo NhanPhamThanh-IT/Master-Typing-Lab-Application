@@ -6,6 +6,10 @@ const routePaths = {
     practice: '/practice',
     contactUs: '/contact-us',
 
+    // Typing Pages
+    typingTest: 'typing-test',
+    typingPractice: 'typing-practice',
+
     // Error Pages
     notFound: '/404',
 }

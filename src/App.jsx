@@ -13,39 +13,40 @@ import {
 } from '@mui/material';
 
 // routePaths constants
-import routePaths from '@constants/routePaths'
+import routePaths from '@constants/routePaths.js';
 
 // Lazy load components to optimize performance
-const Layout = lazy(() => import('@components/Layout'));
+const GeneralLayout = lazy(() => import('@components/layout/GeneralLayout'));
+const PracticeLayout = lazy(() => import('@components/layout/PracticeLayout'));
 const HomePage = lazy(() => import('@pages/HomePage'));
-const PracticePage = lazy(() => import('@pages/PracticePage'));
+const TypingTestPage = lazy(() => import('@pages/TypingTestPage'));
 const ContactPage = lazy(() => import('@pages/ContactPage'));
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
+
+// Loading fallback component to avoid repetition
+const LoadingFallback = () => (
+  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <CircularProgress />
+  </Box>
+);
 
 // Main App component that defines the routes
 function App() {
   return (
     <Routes>
+      {/* General Layout Routes */}
       <Route
         path={routePaths.index}
         element={
-          <Suspense fallback={
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-              <CircularProgress />
-            </Box>
-          }>
-            <Layout />
+          <Suspense fallback={<LoadingFallback />}>
+            <GeneralLayout />
           </Suspense>
         }
       >
         <Route
           index
           element={
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-              </Box>
-            }>
+            <Suspense fallback={<LoadingFallback />}>
               <HomePage />
             </Suspense>
           }
@@ -53,55 +54,60 @@ function App() {
         <Route
           path={routePaths.home}
           element={
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-              </Box>
-            }>
+            <Suspense fallback={<LoadingFallback />}>
               <HomePage />
-            </Suspense>
-          }
-        />
-        <Route
-          path={routePaths.practice}
-          element={
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-              </Box>
-            }>
-              <PracticePage />
             </Suspense>
           }
         />
         <Route
           path={routePaths.contactUs}
           element={
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-              </Box>
-            }>
+            <Suspense fallback={<LoadingFallback />}>
               <ContactPage />
             </Suspense>
           }
         />
       </Route>
+
+      {/* Practice Layout Routes */}
       <Route
-        path="*"
-        element={<Navigate to={routePaths.notFound} replace />}
-      />
+        path={routePaths.practice}
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <PracticeLayout />
+          </Suspense>
+        }
+      >
+        <Route
+          index
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <TypingTestPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.typingTest}
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <TypingTestPage />
+            </Suspense>
+          }
+        />
+      </Route>
+
+      {/* Not Found Routes */}
       <Route
         path={routePaths.notFound}
         element={
-          <Suspense fallback={
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-              <CircularProgress />
-            </Box>
-          }>
+          <Suspense fallback={<LoadingFallback />}>
             <NotFoundPage />
           </Suspense>
         }
+      />
+      <Route
+        path="*"
+        element={<Navigate to={routePaths.notFound} replace />}
       />
     </Routes>
   );

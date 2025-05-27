@@ -57,7 +57,7 @@ const Footer = lazy(() => import('./Footer/index'));
  *   <Route path="practice" element={<PracticePage />} />
  * </Route>
  */
-const Layout = () => {
+const GeneralLayout = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Suspense fallback={
@@ -83,4 +83,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default GeneralLayout;
