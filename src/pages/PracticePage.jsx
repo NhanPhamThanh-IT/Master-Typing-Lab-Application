@@ -4,22 +4,22 @@ import TypingArea from '../components/typing/TypingArea';
 
 const MainPage = () => {
   const [isStarted, setIsStarted] = useState(false);
-  
+
   const handleStart = () => {
     setIsStarted(true);
   };
-  
+
   const handleReset = () => {
     setIsStarted(false);
   };
-  
+
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto' }}>
-      <Typography 
-        variant="h4" 
-        component="h1" 
-        gutterBottom 
-        sx={{ 
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom
+        sx={{
           textAlign: 'center',
           fontWeight: 600,
           mb: 4
@@ -27,11 +27,11 @@ const MainPage = () => {
       >
         Typing Test
       </Typography>
-      
-      <Paper 
-        elevation={3} 
-        sx={{ 
-          p: { xs: 2, sm: 4 }, 
+
+      <Paper
+        elevation={3}
+        sx={{
+          p: { xs: 2, sm: 4 },
           borderRadius: 2,
           mb: 4
         }}
@@ -44,11 +44,11 @@ const MainPage = () => {
             <Typography variant="body1" color="text.secondary" paragraph>
               Click the button below to start the typing test.
             </Typography>
-            <Button 
-              variant="contained" 
-              size="large" 
+            <Button
+              variant="contained"
+              size="large"
               onClick={handleStart}
-              sx={{ 
+              sx={{
                 mt: 2,
                 px: 4,
                 py: 1,
