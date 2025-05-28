@@ -7,6 +7,7 @@
  * @requires constants/textConstants
  */
 
+import routePaths from '@constants/routePaths';
 import TEXT from '@/constants/textConstants.js';
 
 /** Current year used for copyright information */
@@ -48,11 +49,11 @@ const CONSTANTS = {
         NAVITEMS: [
             {
                 TITLE: 'Home',
-                HREF: '/',
+                HREF: routePaths.home,
             },
             {
                 TITLE: 'Practice',
-                HREF: '/practice',
+                HREF: routePaths.practice,
             },
             {
                 TITLE: 'Statistics',
@@ -60,7 +61,7 @@ const CONSTANTS = {
             },
             {
                 TITLE: 'Contact',
-                HREF: '/contact-us',
+                HREF: routePaths.contactUs,
             },
         ],
     },
@@ -96,11 +97,11 @@ const CONSTANTS = {
         },
         {
             TEXT: 'Privacy Policy',
-            HREF: '#',
+            HREF: routePaths.privacyPolicy,
         },
         {
             TEXT: 'Terms of Use',
-            HREF: '#',
+            HREF: routePaths.termsOfUse,
         },
     ]
 };

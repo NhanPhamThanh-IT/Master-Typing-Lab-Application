@@ -9,12 +9,12 @@ import {
 } from '@mui/material';
 
 // Lazy loaded components
-const ContactForm = lazy(() => import('../components/contact/ContactForm'));
-const ContactInfo = lazy(() => import('../components/contact/ContactInfo'));
-const SocialLinks = lazy(() => import('../components/contact/SocialLinks'));
-const AvailabilitySchedule = lazy(() => import('../components/contact/AvailabilitySchedule'));
-const EventsSection = lazy(() => import('../components/contact/EventsSection'));
-const LocationMap = lazy(() => import('../components/contact/LocationMap'));
+const ContactForm = lazy(() => import('../../components/contact/ContactForm'));
+const ContactInfo = lazy(() => import('../../components/contact/ContactInfo'));
+const SocialLinks = lazy(() => import('../../components/contact/SocialLinks'));
+const AvailabilitySchedule = lazy(() => import('../../components/contact/AvailabilitySchedule'));
+const EventsSection = lazy(() => import('../../components/contact/EventsSection'));
+const LocationMap = lazy(() => import('../../components/contact/LocationMap'));
 
 // Loading placeholders
 const FormSkeleton = () => (
