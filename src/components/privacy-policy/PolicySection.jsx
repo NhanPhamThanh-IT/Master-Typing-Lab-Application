@@ -16,7 +16,6 @@ import {
     Button,
     Stack,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { SectionTitle } from './PolicyStyles';
 
@@ -144,7 +143,7 @@ const PolicySection = ({ title, icon, content, contentType }) => {
         <Accordion defaultExpanded sx={{ border: 'none', boxShadow: 'none', '&:before': { display: 'none' } }}>
             <AccordionSummary
                 disabled={true}
-                sx={{ 
+                sx={{
                     backgroundColor: '#3f51b5',
                     borderRadius: '8px',
                     '&.Mui-disabled': {
