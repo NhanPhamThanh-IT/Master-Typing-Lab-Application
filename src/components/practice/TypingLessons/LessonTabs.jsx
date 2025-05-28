@@ -7,7 +7,10 @@ const LessonTabs = ({ lessonCategories, activeTab, handleTabChange, colors }) =>
             sx={{
                 mb: 5,
                 borderRadius: 2,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center',
+                
             }}
         >
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -35,6 +38,7 @@ const LessonTabs = ({ lessonCategories, activeTab, handleTabChange, colors }) =>
                             icon={category.icon}
                             iconPosition="start"
                             sx={{
+                                textTransform: 'none',
                                 '&.Mui-selected': {
                                     color: category.color,
                                 }

@@ -1,8 +1,3 @@
-import KeyboardIcon from '@mui/icons-material/Keyboard';
-import SchoolIcon from '@mui/icons-material/School';
-import SpeedIcon from '@mui/icons-material/Speed';
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-
 export const colorPalette = {
     primary: '#2A5298',      // Deep blue - primary brand color
     secondary: '#61A0AF',    // Teal blue - secondary accent

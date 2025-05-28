@@ -97,7 +97,7 @@ const TypingLessonsPage = () => {
             </Suspense>
 
             <Suspense fallback={<LoadingFallback />}>
-                <ProTipsSection colors={colors} />
+                <ProTipsSection />
             </Suspense>
         </Container>
     );

@@ -11,12 +11,30 @@ const HeroSection = () => {
     return (
         <Box
             sx={{
+                position: 'relative',
                 mb: 5,
                 textAlign: 'center',
                 p: 4,
                 borderRadius: 3,
                 background: '#F8F9FA',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.05)'
+                boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+                zIndex: 0,
+                overflow: 'hidden',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    padding: '2px',
+                    borderRadius: 3,
+                    background: 'linear-gradient(90deg, #2A5298, #6D59A8, #59A88B)',
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude',
+                    zIndex: -1,
+                },
             }}
         >
             <Typography
