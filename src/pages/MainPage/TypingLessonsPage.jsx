@@ -13,7 +13,7 @@ import {
 // Theme imports
 import {
     colorPalette
-} from '@theme/colors';
+} from '@components/practice/TypingLessons/colors';
 
 // Lazy loaded component imports
 const HeroSection = lazy(() => import('@components/practice/TypingLessons/HeroSection'));

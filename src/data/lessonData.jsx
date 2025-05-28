@@ -2,7 +2,7 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 import SchoolIcon from '@mui/icons-material/School';
 import SpeedIcon from '@mui/icons-material/Speed';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-import { colorPalette } from '@theme/colors';
+import { colorPalette } from '@components/practice/TypingLessons/colors';
 
 const colors = colorPalette;
 

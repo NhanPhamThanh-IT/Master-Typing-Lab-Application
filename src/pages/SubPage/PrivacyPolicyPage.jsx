@@ -1,134 +1,114 @@
-import { Container, Typography, Box, Paper, Divider } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import {
+    Suspense,
+    lazy
+} from 'react';
+import {
+    Container,
+    Box,
+    Skeleton,
+} from '@mui/material';
+import { privacyPolicySections } from '@data/privacyPolicyData';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(4),
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    borderRadius: '8px',
-}));
+/**
+ * @module PrivacyPolicyPage
+ * @description A React component that renders the privacy policy page with lazy-loaded sections
+ * for improved performance and load times.
+ */
 
-const SectionTitle = styled(Typography)(({ theme }) => ({
-    fontWeight: 600,
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(1),
-}));
+/**
+ * Lazily loaded policy components to reduce initial bundle size
+ * @see {@link PolicyHeader} - Component for displaying the policy page header
+ * @see {@link PolicyIntroduction} - Component for wrapping the policy introduction and sections
+ * @see {@link PolicySection} - Component for rendering individual policy sections
+ */
+const PolicyHeader = lazy(() => import('@components/privacy-policy/PolicyHeader'));
+const PolicyIntroduction = lazy(() => import('@components/privacy-policy/PolicyIntroduction'));
+const PolicySection = lazy(() => import('@components/privacy-policy/PolicySection'));
 
+/**
+ * Skeleton placeholder displayed during lazy-loading of the header component
+ * @function HeaderLoading
+ * @returns {React.Element} A Material-UI Skeleton component styled for the header
+ */
+const HeaderLoading = () => (
+    <Skeleton
+        variant="rectangular"
+        width="100%"
+        height={180}
+        sx={{ borderRadius: '12px', mb: 4 }}
+        animation="wave"
+    />
+);
+
+/**
+ * Skeleton placeholder displayed during lazy-loading of policy sections
+ * @function SectionLoading
+ * @returns {React.Element} A Material-UI Skeleton component styled for policy sections
+ */
+const SectionLoading = () => (
+    <Skeleton
+        variant="rectangular"
+        width="100%"
+        height={100}
+        sx={{ borderRadius: '8px', mb: 2 }}
+        animation="wave"
+    />
+);
+
+/**
+ * Complex skeleton placeholder displayed during lazy-loading of the introduction section
+ * Creates multiple skeleton elements to represent the introduction and child sections
+ * @function IntroductionLoading
+ * @returns {React.Element} A group of Material-UI Skeleton components
+ */
+const IntroductionLoading = () => (
+    <>
+        <Skeleton
+            variant="rectangular"
+            width="100%"
+            height={80}
+            sx={{ borderRadius: '8px', mb: 3 }}
+            animation="wave"
+        />
+        {[...Array(5)].map((_, index) => (
+            <SectionLoading key={index} />
+        ))}
+    </>
+);
+
+/**
+ * Main privacy policy component that orchestrates the layout and rendering of all policy sections.
+ * Uses React Suspense for code-splitting and displaying fallback UI during loading.
+ * 
+ * @function PrivacyPolicy
+ * @returns {React.Element} The complete privacy policy page with header and policy sections
+ */
 const PrivacyPolicy = () => {
     return (
         <Container maxWidth="lg">
             <Box sx={{ py: 4 }}>
-                <Typography variant="h3" component="h1" gutterBottom align="center" sx={{ fontWeight: 700 }}>
-                    Privacy Policy
-                </Typography>
+                <Suspense fallback={<HeaderLoading />}>
+                    <PolicyHeader />
+                </Suspense>
 
-                <Typography variant="subtitle1" color="text.secondary" align="center" sx={{ mb: 4 }}>
-                    Last Updated: May 28, 2025
-                </Typography>
-
-                <StyledPaper elevation={3}>
-                    <Typography variant="body1" paragraph>
-                        Welcome to the Typing Test Application. We are committed to protecting your privacy and providing a safe user experience.
-                        This Privacy Policy explains how we collect, use, and safeguard your information when you use our application.
-                    </Typography>
-
-                    <Divider sx={{ my: 3 }} />
-
-                    <SectionTitle variant="h5">
-                        Information We Collect
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        <strong>Personal Information:</strong> When you create an account, we collect your email address, username, and password.
-                    </Typography>
-
-                    <Typography variant="body1" paragraph>
-                        <strong>Usage Data:</strong> We collect information about how you use our application, including typing speed, accuracy,
-                        test results, and practice frequency.
-                    </Typography>
-
-                    <Typography variant="body1" paragraph>
-                        <strong>Technical Data:</strong> We automatically collect certain information when you visit our application,
-                        including IP address, browser type, device information, and operating system.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        How We Use Your Information
-                    </SectionTitle>
-
-                    <Typography variant="body1" component="ul" sx={{ pl: 4 }}>
-                        <li>To provide, maintain, and improve our services</li>
-                        <li>To personalize your experience and deliver content relevant to your interests</li>
-                        <li>To track your progress and provide performance analytics</li>
-                        <li>To communicate with you about updates, features, or support</li>
-                        <li>To detect, prevent, and address technical issues or security concerns</li>
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Data Security
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        We implement appropriate security measures to protect your personal information from unauthorized access,
-                        alteration, disclosure, or destruction. This includes encryption, secure servers, and regular security assessments.
-                        However, no method of transmission over the Internet or electronic storage is 100% secure.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Data Sharing and Disclosure
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        We do not sell, trade, or otherwise transfer your personal information to external parties.
-                        We may share aggregated, non-personal information for application improvement, research, or marketing purposes.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Your Rights
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        You have the right to access, update, or delete your personal information. You can manage your account settings
-                        or contact us directly to exercise these rights. You may also opt out of certain data collection features
-                        through your account settings.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Children's Privacy
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        Our services are not intended for individuals under the age of 13. We do not knowingly collect personal
-                        information from children under 13. If we discover that a child under 13 has provided us with personal
-                        information, we will promptly delete it.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Changes to This Privacy Policy
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new
-                        Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this
-                        Privacy Policy periodically for any changes.
-                    </Typography>
-
-                    <SectionTitle variant="h5">
-                        Contact Us
-                    </SectionTitle>
-
-                    <Typography variant="body1" paragraph>
-                        If you have any questions about this Privacy Policy or our practices, please contact us at:
-                        <br />
-                        <strong>Email:</strong> support@typingtestapp.com
-                        <br />
-                        <strong>Address:</strong> 123 Typing Street, Keyboard City, TC 12345
-                    </Typography>
-                </StyledPaper>
+                <Suspense fallback={<IntroductionLoading />}>
+                    <PolicyIntroduction>
+                        {privacyPolicySections.map((section, index) => (
+                            <Suspense key={index} fallback={<SectionLoading />}>
+                                <PolicySection
+                                    title={section.title}
+                                    icon={section.icon}
+                                    content={section.content}
+                                    contentType={section.contentType}
+                                />
+                            </Suspense>
+                        ))}
+                    </PolicyIntroduction>
+                </Suspense>
             </Box>
         </Container>
     );
 };
 
+// Export main component with lazy loading
 export default PrivacyPolicy;
