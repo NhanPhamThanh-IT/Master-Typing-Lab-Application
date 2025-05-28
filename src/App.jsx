@@ -19,11 +19,14 @@ import routePaths from '@constants/routePaths.js';
 const GeneralLayout = lazy(() => import('@components/layout/GeneralLayout'));
 const PracticeLayout = lazy(() => import('@components/layout/PracticeLayout'));
 
-// Lazy loaded pages for the application
+// Lazy loaded main pages for the application
 const HomePage = lazy(() => import('@pages/MainPage/HomePage'));
 const TypingTestPage = lazy(() => import('@pages/MainPage/TypingTestPage'));
 const TypingLessonsPage = lazy(() => import('@pages/MainPage/TypingLessonsPage'));
+const TypingGamesPage = lazy(() => import('@pages/MainPage/TypingGamesPage'));
 const ContactPage = lazy(() => import('@pages/MainPage/ContactPage'));
+
+// Lazy loaded sub-pages for the application
 const NotFoundPage = lazy(() => import('@pages/SubPage/NotFoundPage'));
 const PrivacyPolicyPage = lazy(() => import('@pages/SubPage/PrivacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('@pages/SubPage/TermsOfUsePage'));
@@ -120,6 +123,14 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <TypingLessonsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.typingGames}
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <TypingGamesPage />
             </Suspense>
           }
         />
