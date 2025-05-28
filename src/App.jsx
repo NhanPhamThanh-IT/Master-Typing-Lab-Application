@@ -15,14 +15,18 @@ import {
 // routePaths constants
 import routePaths from '@constants/routePaths.js';
 
-// Lazy load components to optimize performance
+// Lazy loaded layout components to improve initial page load performance
 const GeneralLayout = lazy(() => import('@components/layout/GeneralLayout'));
 const PracticeLayout = lazy(() => import('@components/layout/PracticeLayout'));
-const HomePage = lazy(() => import('@pages/HomePage'));
-const TypingTestPage = lazy(() => import('@pages/TypingTestPage'));
-const TypingLessonsPage = lazy(() => import('@pages/TypingLessonsPage'));
-const ContactPage = lazy(() => import('@pages/ContactPage'));
-const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
+
+// Lazy loaded pages for the application
+const HomePage = lazy(() => import('@pages/MainPage/HomePage'));
+const TypingTestPage = lazy(() => import('@pages/MainPage/TypingTestPage'));
+const TypingLessonsPage = lazy(() => import('@pages/MainPage/TypingLessonsPage'));
+const ContactPage = lazy(() => import('@pages/MainPage/ContactPage'));
+const NotFoundPage = lazy(() => import('@pages/SubPage/NotFoundPage'));
+const PrivacyPolicyPage = lazy(() => import('@pages/SubPage/PrivacyPolicyPage'));
+const TermsOfUsePage = lazy(() => import('@pages/SubPage/TermsOfUsePage'));
 
 // Loading fallback component to avoid repetition
 const LoadingFallback = () => (
@@ -65,6 +69,22 @@ function App() {
           element={
             <Suspense fallback={<LoadingFallback />}>
               <ContactPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.privacyPolicy}
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <PrivacyPolicyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={routePaths.termsOfUse}
+          element={
+            <Suspense fallback={<LoadingFallback />}>
+              <TermsOfUsePage />
             </Suspense>
           }
         />

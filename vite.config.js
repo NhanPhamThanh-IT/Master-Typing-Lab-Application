@@ -26,6 +26,8 @@ export default defineConfig({
       '@locales': path.resolve(__dirname, 'src/locales'),
       '@lib': path.resolve(__dirname, 'src/lib'),
       '@api': path.resolve(__dirname, 'src/api'),
+      '@theme': path.resolve(__dirname, 'src/theme'),
+      '@data': path.resolve(__dirname, 'src/data'),
 
       react: path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),

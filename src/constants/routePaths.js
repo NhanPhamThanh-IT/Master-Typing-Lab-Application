@@ -13,6 +13,10 @@ const routePaths = {
 
     // Error Pages
     notFound: '/404',
+
+    // Sub Pages
+    privacyPolicy: '/privacy-policy',
+    termsOfUse: '/terms-of-use',
 }
 
 export default routePaths;
