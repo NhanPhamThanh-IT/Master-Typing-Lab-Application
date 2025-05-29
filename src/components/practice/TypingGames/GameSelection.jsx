@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import {
+    useState
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Grid,
     Card,
@@ -11,6 +14,7 @@ import {
     Chip,
     Avatar
 } from '@mui/material';
+import routePaths from '@constants/routePaths.js';
 import {
     SportsEsports as GameIcon,
     Timer as TimerIcon,
@@ -24,12 +28,32 @@ import { GAMES_DATA } from './constants';
 
 /**
  * GameSelection - Component for displaying and selecting typing games
- * 
- * @param {Object} props - Component properties
- * @param {Function} props.onGameSelect - Callback function when a game is selected
+ * Navigates to individual game pages when a game is selected
  */
-const GameSelection = ({ onGameSelect }) => {
+const GameSelection = () => {
     const [hoveredGame, setHoveredGame] = useState(null);
+    const navigate = useNavigate();
+    
+    // Handle direct game navigation
+    const handleGameClick = (game) => {
+        // Navigate to the specific game page based on game.id
+        switch (game.id) {
+            case 'word-master':
+                navigate(`${routePaths.practice}/${routePaths.typingGames}/${routePaths.games.wordMaster}`);
+                break;
+            case 'time-attack':
+                navigate(`${routePaths.practice}/${routePaths.typingGames}/${routePaths.games.timeAttack}`);
+                break;
+            case 'bomb-defuser':
+                navigate(`${routePaths.practice}/${routePaths.typingGames}/${routePaths.games.bombDefuser}`);
+                break;
+            case 'punctuation-pro':
+                navigate(`${routePaths.practice}/${routePaths.typingGames}/${routePaths.games.punctuationPro}`);
+                break;
+            default:
+                navigate(`${routePaths.practice}/${routePaths.typingGames}`);
+        }
+    };
 
     return (
         <Box>
@@ -57,7 +81,7 @@ const GameSelection = ({ onGameSelect }) => {
                             <Box sx={{ position: 'relative' }}>
                                 <CardMedia
                                     component="img"
-                                    height="140"
+                                    height="200"
                                     image={game.imageUrl || `https://source.unsplash.com/random/300x140/?typing,${game.id}`}
                                     alt={game.title}
                                 />
@@ -75,14 +99,22 @@ const GameSelection = ({ onGameSelect }) => {
                                             key={level}
                                             label={level}
                                             size="small"
-                                            color={
-                                                level === 'easy'
-                                                    ? 'success'
-                                                    : level === 'medium'
-                                                        ? 'warning'
-                                                        : 'error'
-                                            }
                                             variant="filled"
+                                            sx={{
+                                                backgroundColor: level === 'easy'
+                                                    ? 'success.light'
+                                                    : level === 'medium'
+                                                        ? 'warning.light'
+                                                        : 'error.light',
+                                                color: 'white',
+                                                border: '2px solid',
+                                                borderColor:
+                                                    level === 'easy'
+                                                        ? 'success.main'
+                                                        : level === 'medium'
+                                                            ? 'warning.main'
+                                                            : 'error.main',
+                                            }}
                                         />
                                     ))}
                                 </Box>
@@ -104,12 +136,11 @@ const GameSelection = ({ onGameSelect }) => {
                                     {game.description}
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                <Button
+                            <CardActions>                                <Button
                                     size="medium"
                                     variant={hoveredGame === game.id ? "contained" : "outlined"}
                                     fullWidth
-                                    onClick={() => onGameSelect(game)}
+                                    onClick={() => handleGameClick(game)}
                                 >
                                     Play Now
                                 </Button>

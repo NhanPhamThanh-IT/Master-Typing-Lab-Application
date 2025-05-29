@@ -11,6 +11,14 @@ const routePaths = {
     typingPractice: 'typing-practice',
     typingLessons: 'typing-lessons',
     typingGames: 'typing-games',
+    
+    // Game Pages
+    games: {
+        wordMaster: 'word-master',
+        timeAttack: 'time-attack',
+        bombDefuser: 'bomb-defuser',
+        punctuationPro: 'punctuation-pro',
+    },
 
     // Error Pages
     notFound: '/404',

@@ -14,6 +14,7 @@ export const GAMES_DATA = [
     {
         id: 'word-master',
         title: 'Word Master',
+        imageUrl: 'https://play-lh.googleusercontent.com/zmCQIy-MDcPQxaEk-ZWoOO4hOxZC6mJa-2E5o1R-z23wErCZtoGgMakDI7wBuxR7DC0',
         type: 'word-typing',
         icon: 'vocab',
         iconBg: '#3f51b5', // primary color
@@ -44,6 +45,7 @@ export const GAMES_DATA = [
     },
     {
         id: 'time-attack',
+        imageUrl: 'https://nationaltoday.com/wp-content/uploads/2022/07/4569-min.jpg',
         title: 'Time Attack',
         type: 'time-attack',
         icon: 'time',
@@ -74,6 +76,7 @@ export const GAMES_DATA = [
     },
     {
         id: 'bomb-defuser',
+        imageUrl: 'https://static.vecteezy.com/system/resources/previews/004/249/268/non_2x/bomb-game-ui-asset-use-for-powerup-vector.jpg',
         title: 'Bomb Defuser',
         type: 'bomb-defuse',
         icon: 'danger',
@@ -102,6 +105,7 @@ export const GAMES_DATA = [
     },
     {
         id: 'punctuation-pro',
+        imageUrl: 'https://i.etsystatic.com/49907471/r/il/623f73/6177596469/il_fullxfull.6177596469_gxpl.jpg',
         title: 'Punctuation Pro',
         type: 'punctuation',
         icon: 'quote',
