@@ -1,3 +1,45 @@
+/**
+ * Header Component
+ *
+ * Renders the main navigation bar (AppBar) with hide-on-scroll functionality and a responsive menu.
+ *
+ * Features:
+ * - Hides on scroll down using `useScrollTrigger` and `Slide` transition.
+ * - Displays application logo and title linked to the home route.
+ * - Shows a hamburger menu on mobile and inline navigation buttons on desktop.
+ * - Highlights the active route with an underline and color changes.
+ *
+ * Props:
+ * - `props`: Properties passed to the `HideOnScroll` component to control scroll behavior.
+ *
+ * Styles:
+ * - AppBar: Sticky positioning, background color, and bottom border defined via the `sx` prop.
+ * - Navigation Buttons: Custom hover effects and active-state underline styling using the `sx` prop.
+ *
+ * Dependencies:
+ * - Material-UI: AppBar, Toolbar, Typography, Button, Box, Container, useScrollTrigger, Slide, IconButton, useMediaQuery, Menu, MenuItem, useTheme.
+ * - lucide-react: KeyboardIcon for the application logo.
+ * - react-router-dom: RouterLink for navigation links and useLocation for active route detection.
+ * - Constants: `routePaths` for route definitions and `TEXT` for display text values.
+ *
+ * Usage Example:
+ * ```jsx
+ * import Header from './Header';
+ *
+ * function App() {
+ *   return (
+ *     <BrowserRouter>
+ *       <Header />
+ *     </BrowserRouter >
+ *   );
+ * }
+ * ```
+ *
+ * Notes:
+ * - Ensure `routePaths` and `TEXT` constants are correctly imported and contain valid entries.
+ * - Confirm breakpoints and theme settings align with your design requirements.
+ */
+
 import {
     AppBar,
     Toolbar,

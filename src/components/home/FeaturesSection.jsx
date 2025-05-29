@@ -1,5 +1,82 @@
-import { Container, Typography, Grid, Paper } from '@mui/material';
-import { TimerIcon, TrophyIcon, BarChartIcon } from 'lucide-react';
+import {
+  Container,
+  Typography,
+  Grid,
+  Paper
+} from '@mui/material';
+import {
+  TimerIcon,
+  TrophyIcon,
+  BarChartIcon
+} from 'lucide-react';
+
+/**
+ * @component FeaturesSection
+ * @description A visually appealing component that showcases the key features and benefits of the typing practice application.
+ * This component displays three main features using cards with icons, headings, and descriptions in a responsive grid layout.
+ * 
+ * @features
+ * - Gradient text heading with eye-catching design
+ * - Three feature cards highlighting key benefits of the platform
+ * - Interactive hover animations on feature cards for enhanced user engagement
+ * - Responsive grid layout that adapts to different screen sizes
+ * - Consistent visual hierarchy with iconography, headings, and descriptions
+ * - Strategic use of color to emphasize different features
+ * 
+ * @visualElements
+ * - Lucide React icons representing each feature (TimerIcon, TrophyIcon, BarChartIcon)
+ * - Material UI Paper components with elevation and hover effects
+ * - Gradient text effect on the main heading
+ * - Consistent spacing and typography hierarchy
+ * - Color-coded icons to differentiate features (blue, red, green)
+ * 
+ * @responsiveBehavior
+ * - Single column layout on small screens (mobile)
+ * - Three column layout on medium and larger screens
+ * - Maintains consistent spacing and visual appeal across all devices
+ * - Cards have equal height regardless of content length
+ * 
+ * @animationDetails
+ * - TranslateY animation on hover moves cards upward for interactive feedback
+ * - Shadow depth increases on hover to create elevation effect
+ * - Smooth transitions with 0.3s duration for natural feel
+ * 
+ * @contentStructure
+ * - Main heading ("Why Practice With Us?") with gradient styling
+ * - Subtitle explaining the overall value proposition
+ * - Three feature cards, each containing:
+ *   - Thematic icon with color coding
+ *   - Feature heading with emphasized typography
+ *   - Descriptive text explaining the benefit in detail
+ * 
+ * @accessibilityConsiderations
+ * - Proper heading structure for screen readers
+ * - Sufficient color contrast between text and background
+ * - Semantic HTML structure for better comprehension
+ * - Interactive elements are visually distinguishable
+ * 
+ * @stylingApproach
+ * - Utilizes Material UI's sx prop for component styling
+ * - Consistent spacing using MUI's spacing system
+ * - Custom transitions for interactive elements
+ * - Typography variants applied consistently for hierarchy
+ * - Strategic color usage for visual interest and emphasis
+ * 
+ * @usage
+ * ```jsx
+ * import FeaturesSection from '../components/home/FeaturesSection';
+ * 
+ * const HomePage = () => (
+ *   <div>
+ *     <HeroSection />
+ *     <FeaturesSection />
+ *     <OtherSections />
+ *   </div>
+ * );
+ * ```
+ * 
+ * @returns {JSX.Element} A container with a heading and a grid of feature cards
+ */
 
 const FeaturesSection = () => {
   return (

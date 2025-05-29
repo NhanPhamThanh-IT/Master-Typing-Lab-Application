@@ -1,3 +1,32 @@
+/**
+ * Privacy Policy Sections Data Module
+ *
+ * Exports `privacyPolicySections`, an array of objects defining the sections
+ * for the Privacy Policy page. Each section object includes:
+ * - `title` (string): The heading of the section.
+ * - `icon` (React component): The icon representing the section.
+ * - `contentType` (string): The layout type for rendering content. Valid types:
+ *     - `grid`: Render content in a grid of items with titles and descriptions.
+ *     - `list`: Render content as a list of strings.
+ *     - `security`: Render content with security-specific styling.
+ *     - `text`: Render content as a plain text paragraph.
+ *     - `contact`: Render content as contact details.
+ * - `content` (array|string|object): The actual content, structured according to `contentType`.
+ *
+ * Dependencies:
+ * - Material-UI icons: InfoIcon, SecurityIcon, LockIcon, ChildCareIcon, UpdateIcon, EmailIcon.
+ *
+ * Usage Example:
+ * ```js
+ * import { privacyPolicySections } from '../data/privacyPolicyData';
+ * // Iterate through sections and render accordingly
+ * privacyPolicySections.forEach(section => console.log(section.title));
+ * ```
+ *
+ * Notes:
+ * - Ensure that `contentType` values correspond to appropriate renderers in the PrivacyPolicyPage.
+ */
+
 import InfoIcon from '@mui/icons-material/Info';
 import SecurityIcon from '@mui/icons-material/Security';
 import LockIcon from '@mui/icons-material/Lock';

@@ -8,6 +8,45 @@ import {
   UserIcon
 } from 'lucide-react';
 
+/**
+ * TestimonialsSection Component
+ * 
+ * This component renders the "User Success Stories" section of the home page, showcasing testimonials from users who have benefited from the typing test application.
+ * 
+ * Features:
+ * - Displays a section header: "User Success Stories".
+ * - Provides a subheading with motivational text.
+ * - Renders a grid of testimonial cards, each containing a quote and author information.
+ * 
+ * Props:
+ * None
+ * 
+ * Styles:
+ * - Uses Material-UI's `sx` prop for custom styling of the section, typography, and testimonial cards.
+ * 
+ * Dependencies:
+ * - Material-UI components: Container, Typography, Grid, Paper.
+ * - Lucide-react: UserIcon for visual representation.
+ * 
+ * Usage:
+ * ```jsx
+ * import TestimonialsSection from './TestimonialsSection';
+ * 
+ * const HomePage = () => (
+ *   <div>
+ *     <TestimonialsSection />
+ *   </div>
+ * );
+ * 
+ * export default HomePage;
+ * ```
+ * 
+ * Notes:
+ * - The `testimonials` array contains the data for each testimonial card.
+ * - Customize the styles using Material-UI's sx prop if needed.
+ * - Ensure the `UserIcon` component is properly imported and styled.
+ */
+
 // Testimonial data array
 const testimonials = [
   {
