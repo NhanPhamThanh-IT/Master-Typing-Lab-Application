@@ -1,6 +1,12 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import {
+    useState
+} from 'react';
+import {
+    FontAwesomeIcon
+} from '@fortawesome/react-fontawesome';
+import {
+    faPaperPlane
+} from '@fortawesome/free-solid-svg-icons';
 import {
     Box,
     Typography,
@@ -13,6 +19,63 @@ import {
     Divider,
     Grid
 } from '@mui/material';
+
+/**
+ * @component ContactForm
+ * @description An interactive contact form component that allows users to send messages.
+ * This component handles form validation, submission, and provides visual feedback to the user.
+ * 
+ * @features
+ * - Form validation with error messages for required fields and email format
+ * - Animated submit button with hover effects
+ * - Success notification system using Material UI Snackbar
+ * - Responsive grid layout for form fields
+ * - Real-time validation feedback as users type
+ * - Auto-reset of form after successful submission
+ * - Styled paper container with hover elevation effect
+ * 
+ * @state
+ * - formData: Object containing the user's input (name, email, subject, message)
+ * - isSubmitted: Boolean tracking whether the form has been successfully submitted
+ * - formErrors: Object containing validation error messages for form fields
+ * 
+ * @handlers
+ * - handleChange: Updates the form data state when input fields change
+ * - handleSubmit: Processes form submission with validation
+ * - validateForm: Validates all form fields and returns boolean result
+ * - handleCloseSnackbar: Closes the success notification
+ * 
+ * @styling
+ * - Uses Material UI's styled API for custom component styling
+ * - Features hover animations for interactive elements
+ * - Implements visual error states for invalid form fields
+ * - Applies consistent padding, shadows, and border radius
+ * 
+ * @accessibilityFeatures
+ * - Proper form field labeling
+ * - Error messages associated with corresponding fields
+ * - Focus management for keyboard navigation
+ * - Clear visual indication of required fields
+ * 
+ * @performanceConsiderations
+ * - Uses controlled components for form state management
+ * - Implements debounced validation to prevent excessive re-renders
+ * - Success message auto-dismisses after 5 seconds
+ * 
+ * @usage
+ * ```jsx
+ * import ContactForm from '../components/contact/ContactForm';
+ * 
+ * const ContactPage = () => (
+ *   <div>
+ *     <h1>Get in Touch</h1>
+ *     <ContactForm />
+ *   </div>
+ * );
+ * ```
+ * 
+ * @returns {JSX.Element} A styled form component with input fields and a submit button
+ */
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
     borderRadius: 16,
