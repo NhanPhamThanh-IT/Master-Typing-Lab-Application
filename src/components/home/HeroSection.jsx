@@ -16,6 +16,73 @@ import heroBackground from "@assets/home-hero-background.png";
 // Hooks
 import useLazyLoadImage from '@hooks/useLazyLoadImage';
 
+/**
+ * @component HeroSection
+ * @description A visually striking full-screen hero section component that serves as the main landing area for the typing application.
+ * This component features a dramatic background image with overlay, prominent call-to-action buttons, and responsive design.
+ * 
+ * @features
+ * - Full-viewport height background with parallax-like effect
+ * - Lazy-loaded background image with loading placeholder
+ * - Dramatic gradient overlay to ensure text readability
+ * - Responsive typography that scales with viewport size
+ * - Call-to-action buttons with hover animations
+ * - Text shadow effects for improved contrast against background
+ * - Smooth transitions when background image loads
+ * 
+ * @visualElements
+ * - Large hero background image with dark gradient overlay
+ * - Prominent headline with bold typography
+ * - Supporting subheader text explaining the application's purpose
+ * - Primary CTA button with elevation and hover effects
+ * - Secondary outlined button for additional navigation options
+ * - Skeleton loading state when the background image is loading
+ * 
+ * @performance
+ * - Implements lazy loading for the large background image
+ * - Displays a lightweight gradient placeholder during image loading
+ * - Uses skeleton animation to indicate loading state
+ * - Optimizes transitions to prevent layout shifts
+ * 
+ * @responsiveBehavior
+ * - Adapts typography size across different viewport widths
+ * - Maintains proper spacing and proportions on mobile devices
+ * - Adjusts content alignment and sizing for optimal display
+ * - Ensures buttons remain accessible and properly sized on touch devices
+ * 
+ * @animation
+ * - Subtle hover animations on buttons for interactive feedback
+ * - Smooth transition when background image loads
+ * - Elevation change on primary button hover
+ * - Wave animation on skeleton loader during background image loading
+ * 
+ * @accessibilityFeatures
+ * - Semantic heading structure for screen readers
+ * - Sufficient contrast between text and background
+ * - Proper button labeling for assistive technologies
+ * - Keyboard navigation support through standard Router Link implementation
+ * 
+ * @implementationDetails
+ * - Uses custom useLazyLoadImage hook for efficient image loading
+ * - Implements conditional rendering based on image load state
+ * - Leverages Material UI components for consistent styling
+ * - Uses React Router for navigation through RouterLink component
+ * 
+ * @usage
+ * ```jsx
+ * import HeroSection from '../components/home/HeroSection';
+ * 
+ * const HomePage = () => (
+ *   <div>
+ *     <HeroSection />
+ *     <OtherSections />
+ *   </div>
+ * );
+ * ```
+ * 
+ * @returns {JSX.Element} A full-viewport hero section with background image, headline, and CTA buttons
+ */
+
 const HeroSection = () => {
     const loadedImage = useLazyLoadImage(heroBackground);
 

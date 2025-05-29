@@ -1,5 +1,14 @@
-import { useState, lazy, Suspense, useEffect } from 'react';
-import { Container, Typography, Box, CircularProgress } from '@mui/material';
+import {
+    useState,
+    lazy,
+    Suspense
+} from 'react';
+import {
+    Container,
+    Typography,
+    Box,
+    CircularProgress
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import routePaths from '@constants/routePaths';
 
@@ -99,8 +108,7 @@ const WordMasterPage = () => {
                             onExitGame={handleExitGame}
                         />
                     </Suspense>
-                ) : (
-                    <Suspense fallback={<LoadingFallback />}>
+                ) : (                    <Suspense fallback={<LoadingFallback />}>
                         <GameArea
                             game={game}
                             difficultyLevel={difficultyLevel}
@@ -109,18 +117,9 @@ const WordMasterPage = () => {
                             onGameStart={handleGameStart}
                             onGameEnd={handleGameEnd}
                             onExitGame={handleExitGame}
+                            onToggleInstructions={toggleInstructions}
                         />
-                        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-                            <Typography
-                                variant="button"
-                                color="primary"
-                                onClick={toggleInstructions}
-                                sx={{ cursor: 'pointer', textDecoration: 'underline' }}
-                            >
-                                View Instructions
-                            </Typography>
-                        </Box>
-                    </Suspense>
+                </Suspense>
                 )}
             </Box>
         </Container>

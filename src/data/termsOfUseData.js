@@ -1,3 +1,26 @@
+/**
+ * Terms of Use Sections Data Module
+ *
+ * Exports `termsOfUseSections`, an array of objects defining the sections
+ * displayed on the Terms of Use page. Each object includes:
+ * - `title` (string): Section heading.
+ * - `icon` (React component): Icon representing the section.
+ * - `contentType` (string): Layout type for rendering, e.g., `text`, `list`, `grid`, `security`.
+ * - `content` (string|array|array<object>): The section content structured according to `contentType`.
+ *
+ * Dependencies:
+ * - Material-UI icons: GavelIcon, PersonIcon, AccountBoxIcon, CopyrightIcon, SecurityIcon, BlockIcon, UpdateIcon.
+ *
+ * Usage Example:
+ * ```js
+ * import { termsOfUseSections } from '../data/termsOfUseData';
+ * termsOfUseSections.forEach(section => console.log(section.title));
+ * ```
+ *
+ * Notes:
+ * - Ensure `contentType` values match renderers in the TermsOfUsePage component.
+ */
+
 import GavelIcon from '@mui/icons-material/Gavel';
 import PersonIcon from '@mui/icons-material/Person';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';

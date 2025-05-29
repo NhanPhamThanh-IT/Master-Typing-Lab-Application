@@ -30,7 +30,7 @@ const TimeAttackPage = () => {
     const [showInstructions, setShowInstructions] = useState(false);
 
     const navigate = useNavigate();
-    
+
     // Get the game data
     const game = GAMES_DATA.find(game => game.id === 'time-attack');
 
@@ -81,9 +81,9 @@ const TimeAttackPage = () => {
                             <GameInstructions game={game} />
                         </Suspense>
                         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-                            <Typography 
-                                variant="button" 
-                                color="primary" 
+                            <Typography
+                                variant="button"
+                                color="primary"
                                 onClick={toggleInstructions}
                                 sx={{ cursor: 'pointer', textDecoration: 'underline' }}
                             >
@@ -99,28 +99,18 @@ const TimeAttackPage = () => {
                             onExitGame={handleExitGame}
                         />
                     </Suspense>
-                ) : (
-                    <Suspense fallback={<LoadingFallback />}>
-                        <GameArea
-                            game={game}
-                            difficultyLevel={difficultyLevel}
-                            isGameActive={isGameActive}
-                            onDifficultyChange={handleDifficultyChange}
-                            onGameStart={handleGameStart}
-                            onGameEnd={handleGameEnd}
-                            onExitGame={handleExitGame}
-                        />
-                        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-                            <Typography 
-                                variant="button" 
-                                color="primary" 
-                                onClick={toggleInstructions}
-                                sx={{ cursor: 'pointer', textDecoration: 'underline' }}
-                            >
-                                View Instructions
-                            </Typography>
-                        </Box>
-                    </Suspense>
+                ) : (<Suspense fallback={<LoadingFallback />}>
+                    <GameArea
+                        game={game}
+                        difficultyLevel={difficultyLevel}
+                        isGameActive={isGameActive}
+                        onDifficultyChange={handleDifficultyChange}
+                        onGameStart={handleGameStart}
+                        onGameEnd={handleGameEnd}
+                        onExitGame={handleExitGame}
+                        onToggleInstructions={toggleInstructions}
+                    />
+                </Suspense>
                 )}
             </Box>
         </Container>

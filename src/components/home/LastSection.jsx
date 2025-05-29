@@ -36,6 +36,47 @@ const sectionStyles = {
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
 };
 
+/**
+* LastSection Component
+* 
+* This component renders the final section of the home page, encouraging users to start their typing journey.
+* It includes a motivational heading, a subheading, and a call-to-action button.
+* 
+* Features:
+* - Displays a heading: "Ready to Improve Your Typing Skills?".
+* - Provides a subheading with motivational text.
+* - Includes a call-to-action button that navigates users to the main typing test page.
+* 
+* Props:
+* None
+* 
+* Styles:
+* - `sectionStyles`: Defines the background gradient, padding, and border styling for the section.
+* - `buttonStyles`: Customizes the appearance and hover effects of the call-to-action button.
+* 
+* Dependencies:
+* - Material-UI components: Box, Button, Container, Typography, Stack.
+* - React Router: RouterLink for navigation.
+* 
+* Usage:
+* ```jsx
+* import LastSection from './LastSection';
+* 
+* const HomePage = () => (
+*   <div>
+*     <LastSection />
+*   </div>
+* );
+* 
+* export default HomePage;
+* ```
+* 
+* Notes:
+* - Ensure the `RouterLink` component is properly configured for navigation.
+* - Customize the styles using Material-UI's sx prop if needed.
+* - The button redirects users to the `/main` route; ensure this route is defined in your application.
+*/
+
 const LastSection = () => {
     return (
         <Box sx={sectionStyles}>

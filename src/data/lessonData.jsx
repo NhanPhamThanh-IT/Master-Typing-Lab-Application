@@ -1,3 +1,32 @@
+/**
+ * Lesson Categories Data Module
+ *
+ * Exports `lessonCategoriesData`, an array of lesson category objects used to render
+ * the Typing Lessons page. Each category contains:
+ * - `title` (string): The name of the lesson category.
+ * - `icon` (React element): Icon component to visually represent the category.
+ * - `color` (string): Color value for category styling.
+ * - `lessons` (array): Array of lesson objects, each with:
+ *     - `title` (string): Lesson title.
+ *     - `description` (string): Brief overview of the lesson topic.
+ *     - `content` (string): Detailed instructional text for the lesson.
+ *     - `imageUrl` (string): URL or path to an illustrative image.
+ *     - `imageAlt` (string): Alt text for the image for accessibility.
+ *     - `difficulty` (string): Difficulty level indicator (e.g., 'Beginner', 'Intermediate', 'Advanced').
+ *
+ * Dependencies:
+ * - Material-UI icons: KeyboardIcon, SchoolIcon, SpeedIcon, AccessibilityNewIcon.
+ * - `colorPalette` from TypingLessons colors module for category colors.
+ *
+ * Usage Example:
+ * ```jsx
+ * import { lessonCategoriesData } from '../data/lessonData';
+ * lessonCategoriesData.forEach(category => {
+ *   console.log(category.title, category.lessons.length);
+ * });
+ * ```
+ */
+
 import KeyboardIcon from '@mui/icons-material/Keyboard';
 import SchoolIcon from '@mui/icons-material/School';
 import SpeedIcon from '@mui/icons-material/Speed';

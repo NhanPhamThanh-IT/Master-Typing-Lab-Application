@@ -1,5 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+    FontAwesomeIcon
+} from '@fortawesome/react-fontawesome';
+import {
+    faCalendarAlt
+} from '@fortawesome/free-solid-svg-icons';
 import {
     Box,
     Typography,
@@ -10,6 +14,75 @@ import {
     styled,
     Divider
 } from '@mui/material';
+
+/**
+ * @component EventsSection
+ * @description A responsive component that displays upcoming events and office hours.
+ * This component provides users with information about scheduled events, meetups, and availability times
+ * for consultations or meetings in an organized card-based layout.
+ * 
+ * @features
+ * - Interactive event cards with hover effects and elevation changes
+ * - Responsive grid layout that adapts to different screen sizes
+ * - Visual separation of event information with proper typography hierarchy
+ * - Styled container with hover animation for enhanced visual appeal
+ * - Organized presentation of event details including title, date, time, and description
+ * - Consistent design language with other contact components
+ * 
+ * @visualElements
+ * - Calendar icon from FontAwesome to represent the events concept
+ * - Divider separating the section header from event cards
+ * - Card layout for each event with subtle elevation
+ * - Hover animations on both container and individual event cards
+ * - Consistent spacing and typography styling
+ * 
+ * @dataStructure
+ * - Uses an array of event objects, each containing:
+ *   - title: The name of the event (string)
+ *   - date: When the event occurs (string)
+ *   - time: The time frame of the event (string)
+ *   - description: Brief explanation of the event (string)
+ * - Events are mapped to individual cards in the UI
+ * 
+ * @responsiveBehavior
+ * - Single column layout on small screens (mobile)
+ * - Two column layout on medium and larger screens
+ * - Maintains readability and visual hierarchy at all screen sizes
+ * - Card heights adjust based on content while maintaining consistent layout
+ * 
+ * @stylingDetails
+ * - Custom styled Paper component for the container with specific border radius and shadow
+ * - Custom styled Card components for each event with interactive hover effects
+ * - Consistent padding and spacing based on the theme's spacing system
+ * - Typography variants used appropriately for different text elements
+ * - Subtle animations to enhance user interaction
+ * 
+ * @accessibilityConsiderations
+ * - Proper heading structure with semantic HTML
+ * - Sufficient color contrast for text legibility
+ * - Logical reading flow for screen readers
+ * - Organized content structure for better comprehension
+ * 
+ * @usage
+ * ```jsx
+ * import EventsSection from '../components/contact/EventsSection';
+ * 
+ * const ContactPage = () => (
+ *   <div>
+ *     <h1>Get in Touch</h1>
+ *     <EventsSection />
+ *   </div>
+ * );
+ * ```
+ * 
+ * @extensibility
+ * - Event data can be easily modified or expanded
+ * - Additional event details can be incorporated into the card structure
+ * - Design can scale to accommodate more events through the grid system
+ * - Can be integrated with a backend API to fetch real events dynamically
+ * 
+ * @returns {JSX.Element} A styled Paper component containing a grid of event cards
+ */
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
     borderRadius: 16,
