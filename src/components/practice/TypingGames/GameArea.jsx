@@ -10,13 +10,12 @@ import {
     Select,
     MenuItem,
     Grid,
-    IconButton,
 } from '@mui/material';
 import {
     ArrowBack as BackIcon,
     PlayArrow as StartIcon,
     Refresh as RestartIcon,
-    VolumeUp as SoundIcon
+    LiveHelp as LiveHelpIcon
 } from '@mui/icons-material';
 
 // Game components
@@ -39,6 +38,7 @@ import { DIFFICULTY_LEVELS } from './constants';
  * @param {Function} props.onGameStart - Callback for starting the game
  * @param {Function} props.onGameEnd - Callback for ending the game
  * @param {Function} props.onExitGame - Callback for exiting the game
+ * @param {Function} props.onToggleInstructions - Callback for toggling the instructions view
  */
 const GameArea = ({
     game,
@@ -47,7 +47,8 @@ const GameArea = ({
     onDifficultyChange,
     onGameStart,
     onGameEnd,
-    onExitGame
+    onExitGame,
+    onToggleInstructions
 }) => {
     const [countdown, setCountdown] = useState(3);
     const [isCountingDown, setIsCountingDown] = useState(false);
@@ -173,10 +174,15 @@ const GameArea = ({
             {/* Game header */}
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <IconButton onClick={onExitGame} sx={{ mr: 1 }}>
-                        <BackIcon />
-                    </IconButton>
-                    <Typography variant="h5">{game.title}</Typography>
+                    <Button
+                        variant="filled"
+                        color="primary"
+                        startIcon={<BackIcon />}
+                        onClick={onExitGame}
+                        sx={{ mr: 1 }}
+                    >
+                        Back
+                    </Button>
                 </Box>
 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -206,17 +212,32 @@ const GameArea = ({
                             startIcon={<RestartIcon />}
                             onClick={endGame}
                         >
-                            End Game
+                            <Typography sx={{ color: 'white', textTransform: 'none', fontWeight: 600 }}>
+                                End Game
+                            </Typography>
                         </Button>
                     ) : (
                         <Button
                             variant="contained"
-                            color="primary"
-                            startIcon={<StartIcon />}
+                            color="success"
+                            startIcon={<StartIcon sx={{ color: 'white' }} />}
                             onClick={handleStart}
                             disabled={isCountingDown}
                         >
-                            {isCountingDown ? `Starting in ${countdown}...` : 'Start Game'}
+                            <Typography sx={{ color: 'white', textTransform: 'none', fontWeight: 600 }}>
+                                {isCountingDown ? `Starting in ${countdown}...` : 'Start Game'}
+                            </Typography>
+                        </Button>
+                    )}
+
+                    {/* Instructions button */}
+                    {!isGameActive && (
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={onToggleInstructions}
+                        >
+                            <LiveHelpIcon />
                         </Button>
                     )}
                 </Box>
@@ -281,9 +302,7 @@ const GameArea = ({
                         {countdown}
                     </Typography>
                 </Box>
-            )}
-
-            {/* Game content */}
+            )}            {/* Game content */}
             <Box sx={{ position: 'relative', minHeight: 300 }}>
                 {renderGameComponent()}
             </Box>
