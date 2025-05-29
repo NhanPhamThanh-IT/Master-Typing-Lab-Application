@@ -26,6 +26,12 @@ const TypingLessonsPage = lazy(() => import('@pages/MainPage/TypingLessonsPage')
 const TypingGamesPage = lazy(() => import('@pages/MainPage/TypingGamesPage'));
 const ContactPage = lazy(() => import('@pages/MainPage/ContactPage'));
 
+// Lazy loaded game pages
+const WordMasterPage = lazy(() => import('@pages/MainPage/GamePages/WordMasterPage'));
+const TimeAttackPage = lazy(() => import('@pages/MainPage/GamePages/TimeAttackPage'));
+const BombDefuserPage = lazy(() => import('@pages/MainPage/GamePages/BombDefuserPage'));
+const PunctuationProPage = lazy(() => import('@pages/MainPage/GamePages/PunctuationProPage'));
+
 // Lazy loaded sub-pages for the application
 const NotFoundPage = lazy(() => import('@pages/SubPage/NotFoundPage'));
 const PrivacyPolicyPage = lazy(() => import('@pages/SubPage/PrivacyPolicyPage'));
@@ -126,14 +132,48 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          path={routePaths.typingGames}
-          element={
-            <Suspense fallback={<LoadingFallback />}>
-              <TypingGamesPage />
-            </Suspense>
-          }
-        />
+        <Route path={routePaths.typingGames}>
+          <Route 
+            index
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <TypingGamesPage />
+              </Suspense>
+            }
+          />
+          <Route 
+            path={routePaths.games.wordMaster}
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <WordMasterPage />
+              </Suspense>
+            }
+          />
+          <Route 
+            path={routePaths.games.timeAttack}
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <TimeAttackPage />
+              </Suspense>
+            }
+          />
+          <Route 
+            path={routePaths.games.bombDefuser}
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <BombDefuserPage />
+              </Suspense>
+            }
+          />
+          <Route 
+            path={routePaths.games.punctuationPro}
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <PunctuationProPage />
+              </Suspense>
+            }
+          />
+        </Route>
       </Route>
 
       {/* Not Found Routes */}
