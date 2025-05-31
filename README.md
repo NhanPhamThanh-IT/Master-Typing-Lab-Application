@@ -6,12 +6,6 @@
 
 </div>
 
-<div align="center">
-  
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![SWC](https://img.shields.io/badge/SWC-FFB300?style=for-the-badge&logo=swc&logoColor=black) ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
-
-</div>
-
 ## 📋 Overview
 
 PTN-TypeMaster is a comprehensive typing practice application developed with a modern, highly interactive interface that helps users improve their typing speed, accuracy, and efficiency. The application provides a practice environment through tests, structured lessons, and engaging games.
@@ -216,6 +210,12 @@ src/
 ```
 
 ### 🛠️ Detailed Technology Stack
+
+<div align="center">
+  
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![SWC](https://img.shields.io/badge/SWC-FFB300?style=for-the-badge&logo=swc&logoColor=black) ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
+
+</div>
 
 #### Frontend Framework
 
